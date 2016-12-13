@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="zf3-skeleton" default="full-build">
+<project name="zf3-skeleton" default="phpunit">
     <!-- By default, we assume all tools to be on the $PATH -->
     <!--<property name="pdepend" value="pdepend"/>
     <property name="phpcpd"  value="phpcpd"/>
@@ -100,7 +100,7 @@
             description="Measure project size using PHPLOC and print human readable output. Intended for usage on the command line.">
         <exec executable="${phploc}" taskname="phploc">
             <arg value="--count-tests" />
-            <arg path="${basedir}/src" />
+            <arg path="${basedir}/module" />
             <arg path="${basedir}/tests" />
         </exec>
 
@@ -131,7 +131,7 @@
             <arg value="--jdepend-xml=${basedir}/build/logs/jdepend.xml" />
             <arg value="--jdepend-chart=${basedir}/build/pdepend/dependencies.svg" />
             <arg value="--overview-pyramid=${basedir}/build/pdepend/overview-pyramid.svg" />
-            <arg path="${basedir}/src" />
+            <arg path="${basedir}/module" />
         </exec>
 
         <property name="pdepend.done" value="true"/>
