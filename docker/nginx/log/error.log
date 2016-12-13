@@ -1,0 +1,26 @@
+2016/12/10 15:39:17 [error] 7#7: *1 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught RedisException: Connection closed in /var/www/default/public/index.php:3
+Stack trace:
+#0 /var/www/default/public/index.php(3): session_start()
+#1 {main}
+  thrown in /var/www/default/public/index.php on line 3" while reading response header from upstream, client: 127.0.0.1, server: php-docker.local, request: "GET / HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "localhost:9999"
+2016/12/10 15:39:17 [error] 7#7: *1 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught RedisException: Connection closed in [no active file]:0
+Stack trace:
+#0 {main}
+  thrown in [no active file] on line 0" while reading upstream, client: 127.0.0.1, server: php-docker.local, request: "GET / HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "localhost:9999"
+2016/12/10 15:39:17 [error] 7#7: *1 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught RedisException: Connection closed in /var/www/default/public/index.php:3
+Stack trace:
+#0 /var/www/default/public/index.php(3): session_start()
+#1 {main}
+  thrown in /var/www/default/public/index.php on line 3" while reading response header from upstream, client: 127.0.0.1, server: php-docker.local, request: "GET /favicon.ico HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "localhost:9999", referrer: "http://localhost:9999/"
+2016/12/10 15:39:17 [error] 7#7: *1 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught RedisException: Connection closed in [no active file]:0
+Stack trace:
+#0 {main}
+  thrown in [no active file] on line 0" while reading upstream, client: 127.0.0.1, server: php-docker.local, request: "GET /favicon.ico HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "localhost:9999", referrer: "http://localhost:9999/"
+2016/12/10 23:58:26 [error] 7#7: *6 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught Zend\Http\Header\Exception\InvalidArgumentException: Invalid header value detected in /var/www/default/vendor/zendframework/zend-http/src/Header/GenericHeader.php:57
+Stack trace:
+#0 /var/www/default/vendor/zendframework/zend-http/src/Header/AbstractLocation.php(48): Zend\Http\Header\GenericHeader::splitHeaderLine('Location: http:...')
+#1 /var/www/default/vendor/zendframework/zend-http/src/Headers.php(448): Zend\Http\Header\AbstractLocation::fromString('Location: http:...')
+#2 /var/www/default/vendor/zendframework/zend-http/src/Headers.php(352): Zend\Http\Headers->lazyLoadHeader(0)
+#3 /var/www/default/vendor/zendframework/zend-mvc/src/ResponseSender/AbstractResponseSender.php(30): Zend\Http\Headers->current()
+#4 /var/www/default/vendor/zendframework/zend-mvc/src/ResponseSender/PhpEnvironmentResponseSender.php(29): Zend\Mvc\ResponseSender\AbstractResponseSender->sendHeaders(Object(Zend\Mvc\ResponseSender\SendResponseEvent))
+#5 /var/www/default/vendor/zendframework/zen" while reading response header from upstream, client: 127.0.0.1, server: php-docker.local, request: "POST /ocra_service_manager_yuml HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "localhost:9999", referrer: "http://localhost:9999/"

@@ -1,0 +1,18 @@
+nginx:
+  image: nginx:latest
+  ports:
+    - "9999:9999"
+  volumes:
+    - .:/var/www/default
+    - ./docker/nginx/site:/etc/nginx/conf.d
+    - ./docker/nginx/log:/var/log/nginx
+  net: "host"
+
+php-fpm:
+  build: .
+  volumes:
+    - .:/var/www/default
+  net: "host"
+redis:
+  image: redis:alpine
+  net: "host"
