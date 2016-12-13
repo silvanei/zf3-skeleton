@@ -117,8 +117,7 @@
             <arg path="${basedir}/build/logs/phploc.csv" />
             <arg value="--log-xml" />
             <arg path="${basedir}/build/logs/phploc.xml" />
-            <arg path="${basedir}/src" />
-            <arg path="${basedir}/tests" />
+            <arg path="${basedir}/module" />
         </exec>
 
         <property name="phploc.done" value="true"/>
