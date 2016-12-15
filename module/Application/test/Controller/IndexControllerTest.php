@@ -21,7 +21,7 @@ class IndexControllerTest extends AbstractHttpControllerTestCase
         // etc.
         $configOverrides = [
             'config_cache_enabled' => false,
-            'module_map_cache_enabled' => false,
+            'module_map_cache_enabled' => false
         ];
 
         $this->setApplicationConfig(ArrayUtils::merge(
