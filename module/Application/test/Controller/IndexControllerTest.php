@@ -19,7 +19,10 @@ class IndexControllerTest extends AbstractHttpControllerTestCase
         // You can override configuration here with test case specific values,
         // such as sample view templates, path stacks, module_listener_options,
         // etc.
-        $configOverrides = [];
+        $configOverrides = [
+            'config_cache_enabled' => false,
+            'module_map_cache_enabled' => false,
+        ];
 
         $this->setApplicationConfig(ArrayUtils::merge(
             include __DIR__ . '/../../../../config/application.config.php',
