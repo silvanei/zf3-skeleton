@@ -57,6 +57,7 @@
         "pdepend/pdepend" : "2.3.2",
         "phpmd/phpmd" : "@stable",
         "sebastian/phpcpd": "*",
-        "theseer/phpdox": "dev-master"
+        "theseer/phpdox": "dev-master",
+        "mayflower/php-codebrowser": "~1.1"
     }
 }
