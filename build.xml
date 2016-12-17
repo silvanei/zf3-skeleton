@@ -2,15 +2,24 @@
 
 <project name="zf3-skeleton" default="build" basedir=".">
 
-    <composer composer="composer.phar" command="install" />
-    <autoloader autoloaderpath="vendor/autoload.php" />
-
     <!-- Altere estas propriedades adequando-as ao seu projeto -->
     <property name="application.module" value="${project.basedir}/module"/>
     <property name="application.builddir" value="${project.basedir}/build"/>
 
     <target name="build"
-            depends="composer,prepare,lint,phploc,pdepend,phpmd,phpcs,phpcpd,phpdox,phpunit,phpcb" />
+            depends="
+                prepare,
+                composer-install,
+                lint,
+                phploc,
+                pdepend,
+                phpmd,
+                phpcs,
+                phpcpd,
+                phpdox,
+                phpunit,
+                phpcb"
+    />
 
     <target name="clean" description="Limpa os diretórios de artefatos">
         <delete dir="${application.builddir}/api"/>
@@ -26,6 +35,11 @@
         <mkdir dir="${application.builddir}/coverage"/>
         <mkdir dir="${application.builddir}/logs"/>
         <mkdir dir="${application.builddir}/pdepend"/>
+    </target>
+
+    <target name="composer-install" description="Instala as dependencias do projeto">
+        <composer composer="composer.phar" command="install" />
+        <autoloader autoloaderpath="vendor/autoload.php" />
     </target>
 
     <target name="lint">
