@@ -6,6 +6,19 @@
         </collector>
 
         <generator output="build">
+
+            <enrich base="${basedir}/build/logs">
+                <source type="build" />
+                <source type="checkstyle" />
+                <!-- alternative checkstyler to support phpcs xml output -->
+                <!-- <source type="phpcs" /> -->
+                <source type="pmd" />
+                <source type="phploc" />
+                <source type="phpunit">
+                    <coverage path="coverage/xml" />
+                </source>
+            </enrich>
+
             <build engine="html" enabled="true" output="api">
                 <file extension="html" />
             </build>

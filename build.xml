@@ -56,6 +56,11 @@
                 <include name="**/*.php" />
             </fileset>
         </phploc>
+        <phploc reportType="xml" reportDirectory="${application.builddir}/logs/" reportName="phploc" countTests="true">
+            <fileset dir="${application.module}">
+                <include name="**/*.php" />
+            </fileset>
+        </phploc>
     </target>
 
     <target name="pdepend" description="Calcula métricas de software">
