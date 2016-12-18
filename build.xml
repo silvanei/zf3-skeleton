@@ -109,25 +109,28 @@
     </target>
 
     <target name="phpunit" description="Testes Unitários">
-        <coverage-setup database="${application.builddir}/coverage/coverage.db">
-            <fileset dir="${application.module}" id="tests">
-                <include name="**/*Test.php"/>
-            </fileset>
-        </coverage-setup>
-        <phpunit codecoverage="true" haltonfailure="true" haltonerror="true">
-            <batchtest>
-                <fileset dir="${application.module}">
-                    <include name="**/*Test.php"/>
-                </fileset>
-            </batchtest>
-            <formatter type="clover" todir="${application.builddir}/logs" outfile="clover.xml"/>
-            <formatter type="xml" todir="${application.builddir}/logs" outfile="junit.xml"/>
-        </phpunit>
-        <coverage-report outfile="${application.builddir}/coverage/coverage.xml">
-            <report todir="${application.builddir}/coverage"/>
-        </coverage-report>
-        <phpunitreport infile="${project.basedir}/phpunit.xml"
-                       todir="${application.builddir}/logs"/>
+        <exec executable="vendor/bin/phpunit" />
+        <!--<coverage-setup database="${application.builddir}/coverage/coverage.db">-->
+            <!--<fileset dir="${application.module}" id="tests">-->
+                <!--<include name="**/*Test.php"/>-->
+            <!--</fileset>-->
+        <!--</coverage-setup>-->
+        <!--<phpunit codecoverage="true" haltonfailure="true" haltonerror="true">-->
+            <!--<batchtest>-->
+                <!--<fileset dir="${application.module}">-->
+                    <!--<include name="**/*Test.php"/>-->
+                <!--</fileset>-->
+            <!--</batchtest>-->
+            <!--<formatter type="clover" todir="${application.builddir}/logs" outfile="clover.xml"/>-->
+            <!--<formatter type="xml" todir="${application.builddir}/logs" outfile="junit.xml"/>-->
+
+
+        <!--</phpunit>-->
+        <!--<coverage-report outfile="${application.builddir}/coverage/coverage.xml">-->
+            <!--<report todir="${application.builddir}/coverage"/>-->
+        <!--</coverage-report>-->
+        <!--<phpunitreport infile="${project.basedir}/phpunit.xml"-->
+                       <!--todir="${application.builddir}/logs"/>-->
     </target>
 
     <target name="phpcb" description="Cria a navegação de código">
