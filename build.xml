@@ -27,6 +27,7 @@
         <delete dir="${application.builddir}/coverage"/>
         <delete dir="${application.builddir}/logs"/>
         <delete dir="${application.builddir}/pdepend"/>
+        <delete dir="${application.builddir}/phpdox"/>
     </target>
 
     <target name="prepare" depends="clean" description="Cria os diretórios de artefatos">
@@ -35,10 +36,13 @@
         <mkdir dir="${application.builddir}/coverage"/>
         <mkdir dir="${application.builddir}/logs"/>
         <mkdir dir="${application.builddir}/pdepend"/>
+        <mkdir dir="${application.builddir}/phpdox"/>
     </target>
 
     <target name="composer-install" description="Instala as dependencias do projeto">
-        <composer composer="composer.phar" command="install" />
+        <composer composer="composer.phar" command="install">
+            <arg value="--no-interaction" />
+        </composer>
         <autoloader autoloaderpath="vendor/autoload.php" />
     </target>
 
