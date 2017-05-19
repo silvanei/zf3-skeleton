@@ -11,8 +11,16 @@ node {
         // Run PHPUnit
         bat 'vendor/bin/phpunit'
     }
+    stage("phing") {
+        bat 'phing build'
+    }
     stage("Report") {
+        checkstyle canComputeNew: false, defaultEncoding: '', healthy: '', pattern: 'build/logs/checkstyle.xml', unHealthy: ''
+        pmd canComputeNew: false, defaultEncoding: '', healthy: '', pattern: 'build/logs/pmd.xml', unHealthy: ''
+        dry canComputeNew: false, defaultEncoding: '', healthy: '', pattern: 'build/logs/pmd-cpd.xml', unHealthy: ''
+
         junit allowEmptyResults: true, keepLongStdio: true, testResults: 'build/logs/junit.xml'
+
         publishHTML(target: [
             allowMissing: false,
             alwaysLinkToLastBuild: false,
@@ -22,7 +30,7 @@ node {
             reportName: 'Clover HTML Report',
             reportTitles: 'Clover HTML Report'
         ])
-        
+
         publishHTML(target: [
             allowMissing: false,
             alwaysLinkToLastBuild: false,
