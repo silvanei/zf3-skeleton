@@ -5,14 +5,14 @@ node {
     }
     stage("composer_install") {
         // Run `composer update` as a shell script
-        bat 'composer install --no-interaction'
+        sh 'composer install --no-interaction'
     }
     stage("phpunit") {
         // Run PHPUnit
-        bat 'vendor/bin/phpunit'
+        sh 'vendor/bin/phpunit'
     }
     stage("phing") {
-        bat 'phing build'
+        sh 'phing build'
     }
     stage("Report") {
         checkstyle canComputeNew: false, defaultEncoding: '', healthy: '', pattern: 'build/logs/checkstyle.xml', unHealthy: ''
